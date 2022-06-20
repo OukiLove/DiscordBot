@@ -4,7 +4,6 @@ import asyncio
 from discord.ext import commands
 from config import PREFIX, EMB_COLOR
 from render import render
-client = commands.Bot(command_prefix=PREFIX)
 
 class admin:
     async def ban(ctx, member: discord.Member, reason):
