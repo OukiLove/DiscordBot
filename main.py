@@ -108,10 +108,16 @@ class Admin:
 class Other:
     @client.command()
     async def help(ctx):
-        try:
-            await other.help(ctx)
-        except:
-            await render.DrawEmbError(ctx, 'Error.')
+        if ctx.author.id == OWNER:
+            try:
+                await other.helpowner(ctx)
+            except:
+                await render.DrawEmbError(ctx, 'Error.')
+        else:
+            try:
+                await other.help(ctx)
+            except:
+                await render.DrawEmbError(ctx, 'Error.')
 
     @client.command()
     async def eval(ctx):
@@ -141,7 +147,7 @@ class Other:
         except:
             await render.DrawEmbError(ctx, 'Error.')
 
-@client.event()
+@client.event
 async def on_ready():
     activity = discord.Game(name="{}help".format(PREFIX), type=3)
     await client.change_presence(status=discord.Status.idle, activity=activity)

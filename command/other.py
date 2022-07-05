@@ -1,13 +1,24 @@
-import discord
-import sys
-from config import PREFIX
-from discord.ext import commands
+from config import PREFIX, OWNER
 from render import render
-
-client = commands.Bot(command_prefix=PREFIX)
 
 class other:
     async def help(ctx):
+        await render.DrawEmbSuccessfully(ctx,f'''
+Music: 
+    {PREFIX}play <url>
+    {PREFIX}stop
+    {PREFIX}pause
+    {PREFIX}resume
+    {PREFIX}leave
+Other:
+    {PREFIX}eval <code>
+    {PREFIX}exec <code>
+    {PREFIX}addbot
+    {PREFIX}status
+    {PREFIX}help
+''')
+
+    async def helpowner(ctx):
         await render.DrawEmbSuccessfully(ctx,f'''
 Music: 
     {PREFIX}play <url>

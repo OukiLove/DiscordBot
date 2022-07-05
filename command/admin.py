@@ -1,8 +1,6 @@
-from unittest import expectedFailure
 import discord
 import asyncio
-from discord.ext import commands
-from config import PREFIX, EMB_COLOR
+from config import EMB_COLOR
 from render import render
 
 class admin:
